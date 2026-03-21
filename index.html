@@ -7,388 +7,88 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0a;
-  --bg2: #131313;
-  --bg3: #1a1a1a;
-  --border: #252525;
-  --accent: #d4f53c;
-  --accent2: #4f8ef7;
-  --text: #e2e2e2;
-  --muted: #555;
-  --muted2: #888;
+  --bg: #0a0a0a; --bg2: #131313; --bg3: #1a1a1a;
+  --border: #252525; --accent: #d4f53c; --accent2: #4f8ef7;
+  --text: #e2e2e2; --muted: #555; --muted2: #888;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 32px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.topbar-title {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; display: flex; flex-direction: column; min-height: 100vh; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 200; flex-wrap: wrap; gap: 10px; }
+.topbar-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; white-space: nowrap; }
 .topbar-title span { color: var(--accent); }
-.pill-group { display: flex; gap: 6px; flex-wrap: wrap; }
-.pill {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 5px 13px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted2);
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
+.topbar-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.pill-group { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.filter-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; }
+.pill { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500; padding: 4px 11px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--muted2); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
 .pill:hover { border-color: #3a3a3a; color: var(--text); }
 .pill.active { border-color: var(--accent); color: var(--accent); background: rgba(212,245,60,0.08); }
 .pill.active-blue { border-color: var(--accent2); color: var(--accent2); background: rgba(79,142,247,0.08); }
-.sep { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
-.layout {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  flex: 1;
-  min-height: 0;
-}
-.sidebar {
-  border-right: 1px solid var(--border);
-  overflow-y: auto;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.sidebar-section-title {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-.field-group { display: flex; flex-direction: column; gap: 8px; }
-.field-label { font-size: 0.78rem; color: var(--muted2); margin-bottom: 2px; }
-.field-input {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 9px 12px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.83rem;
-  color: var(--text);
-  width: 100%;
-  transition: border-color 0.15s;
-  resize: vertical;
-}
+.sep { width: 1px; height: 22px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+
+.layout { display: grid; grid-template-columns: 320px 1fr; flex: 1; min-height: 0; }
+.sidebar { border-right: 1px solid var(--border); overflow-y: auto; padding: 20px 18px; display: flex; flex-direction: column; gap: 16px; }
+.sidebar-section-title { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 7px; font-weight: 500; }
+.field-group { display: flex; flex-direction: column; gap: 7px; }
+.field-label { font-size: 0.75rem; color: var(--muted2); margin-bottom: 1px; }
+.field-input { background: var(--bg3); border: 1px solid var(--border); border-radius: 7px; padding: 8px 11px; font-family: 'DM Sans', sans-serif; font-size: 0.81rem; color: var(--text); width: 100%; transition: border-color 0.15s; }
 .field-input:focus { outline: none; border-color: var(--accent); }
 .field-input::placeholder { color: var(--muted); }
 .divider-line { border: none; border-top: 1px solid var(--border); }
-.copy-btn {
-  width: 100%;
-  padding: 11px;
-  background: var(--accent);
-  border: none;
-  border-radius: 8px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 0.82rem;
-  color: #0a0a0a;
-  cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
-  letter-spacing: 0.04em;
-}
+.copy-btn { width: 100%; padding: 10px; background: var(--accent); border: none; border-radius: 7px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; color: #0a0a0a; cursor: pointer; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.04em; }
 .copy-btn:hover { opacity: 0.88; }
 .copy-btn:active { transform: scale(0.98); }
 .copy-btn.copied { background: #3ecf8e; }
-.subject-preview {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 0.8rem;
-  color: var(--muted2);
-  line-height: 1.5;
-}
-.subject-preview strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 2px; }
-.preview-area {
-  background: #1c1c1c;
-  overflow-y: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 40px 24px;
-}
-.email-frame {
-  width: 100%;
-  max-width: 600px;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  font-family: Georgia, 'Times New Roman', serif;
-}
-.em-header {
-  background: #0f0f0f;
-  padding: 28px 36px 24px;
-  border-bottom: 3px solid #d4f53c;
-}
-.em-header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-.em-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
+.copy-btn-secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); margin-top: -8px; }
+.subject-preview { background: var(--bg3); border: 1px solid var(--border); border-radius: 7px; padding: 9px 12px; font-size: 0.78rem; color: var(--muted2); line-height: 1.5; }
+.subject-preview strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 2px; font-size: 0.8rem; }
+
+.preview-area { background: #1c1c1c; overflow-y: auto; display: flex; align-items: flex-start; justify-content: center; padding: 36px 20px; }
+.email-frame { width: 100%; max-width: 600px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+.em-header { background: #0f0f0f; padding: 26px 34px 22px; border-bottom: 3px solid #d4f53c; }
+.em-header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.em-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; }
 .em-logo span { color: #d4f53c; }
-.em-badge {
-  font-size: 0.65rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 3px 10px;
-  border-radius: 20px;
-  border: 1px solid;
-}
+.em-badge { font-size: 0.62rem; font-family: 'DM Sans', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 9px; border-radius: 20px; border: 1px solid; }
 .em-badge.follow { border-color: #d4f53c; color: #d4f53c; }
 .em-badge.cold { border-color: #4f8ef7; color: #4f8ef7; }
-.em-headline {
-  color: #fff;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-}
-.em-sub {
-  color: #888;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.8rem;
-  margin-top: 6px;
-  font-weight: 300;
-}
-.em-body { padding: 32px 36px; background: #fff; }
-.em-greeting {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 16px;
-  line-height: 1.6;
-  font-family: 'DM Sans', sans-serif;
-}
-.em-intro {
-  font-size: 0.9rem;
-  color: #444;
-  line-height: 1.7;
-  margin-bottom: 24px;
-  font-family: 'DM Sans', sans-serif;
-}
-.em-section-title {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
-  margin-bottom: 10px;
-}
-.em-scope {
-  background: #f8f8f8;
-  border-radius: 8px;
-  padding: 18px 20px;
-  margin-bottom: 24px;
-  border-left: 3px solid #d4f53c;
-}
-.em-scope-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-  color: #333;
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.5;
-}
+.em-headline { color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; }
+.em-sub { color: #888; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; margin-top: 5px; font-weight: 300; }
+.em-body { padding: 28px 34px; background: #fff; }
+.em-greeting { font-size: 0.93rem; color: #333; margin-bottom: 14px; line-height: 1.6; font-family: 'DM Sans', sans-serif; }
+.em-intro { font-size: 0.88rem; color: #444; line-height: 1.7; margin-bottom: 22px; font-family: 'DM Sans', sans-serif; }
+.em-section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 9px; }
+.em-scope { background: #f8f8f8; border-radius: 8px; padding: 16px 18px; margin-bottom: 22px; border-left: 3px solid #d4f53c; }
+.em-scope-item { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 9px; font-size: 0.83rem; color: #333; font-family: 'DM Sans', sans-serif; line-height: 1.5; }
 .em-scope-item:last-child { margin-bottom: 0; }
-.em-scope-dot {
-  width: 6px;
-  height: 6px;
-  background: #d4f53c;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 6px;
-}
-.em-pricing {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-.em-price-card {
-  background: #f8f8f8;
-  border-radius: 8px;
-  padding: 14px 16px;
-  border: 1px solid #eee;
-}
-.em-price-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #999;
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 4px;
-}
-.em-price-value {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #111;
-}
-.em-price-note {
-  font-size: 0.72rem;
-  color: #aaa;
-  font-family: 'DM Sans', sans-serif;
-  margin-top: 2px;
-}
-.em-cta-box {
-  background: #0f0f0f;
-  border-radius: 8px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.em-cta-text {
-  font-size: 0.88rem;
-  color: #ccc;
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.5;
-  flex: 1;
-}
+.em-scope-dot { width: 5px; height: 5px; background: #d4f53c; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.em-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 22px; }
+.em-price-card { background: #f8f8f8; border-radius: 8px; padding: 13px 15px; border: 1px solid #eee; }
+.em-price-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; font-family: 'DM Sans', sans-serif; margin-bottom: 3px; }
+.em-price-value { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: #111; }
+.em-price-note { font-size: 0.7rem; color: #aaa; font-family: 'DM Sans', sans-serif; margin-top: 2px; }
+.em-cta-box { background: #0f0f0f; border-radius: 8px; padding: 18px 22px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.em-cta-text { font-size: 0.85rem; color: #ccc; font-family: 'DM Sans', sans-serif; line-height: 1.5; flex: 1; }
 .em-cta-text strong { color: #fff; }
-.em-cta-btn {
-  background: #d4f53c;
-  color: #0a0a0a;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 0.75rem;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  white-space: nowrap;
-  letter-spacing: 0.04em;
-  display: inline-block;
-}
-.em-needed { margin-bottom: 24px; }
-.em-needed-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-.em-needed-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: #555;
-  font-family: 'DM Sans', sans-serif;
-  background: #f8f8f8;
-  border-radius: 6px;
-  padding: 8px 10px;
-}
-.em-needed-icon { font-size: 0.85rem; flex-shrink: 0; }
-.em-closing {
-  font-size: 0.88rem;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  font-family: 'DM Sans', sans-serif;
-}
-.em-sig {
-  border-top: 1px solid #eee;
-  padding-top: 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.em-sig-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #0f0f0f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 0.9rem;
-  color: #d4f53c;
-  flex-shrink: 0;
-}
-.em-sig-name {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 0.88rem;
-  color: #111;
-}
-.em-sig-role {
-  font-size: 0.75rem;
-  color: #999;
-  font-family: 'DM Sans', sans-serif;
-  margin-top: 1px;
-}
-.em-sig-contact {
-  font-size: 0.72rem;
-  color: #aaa;
-  font-family: 'DM Sans', sans-serif;
-  margin-top: 3px;
-}
-.em-footer {
-  background: #f5f5f5;
-  padding: 14px 36px;
-  text-align: center;
-  font-size: 0.72rem;
-  color: #bbb;
-  font-family: 'DM Sans', sans-serif;
-  border-top: 1px solid #eee;
-  line-height: 1.6;
-}
+.em-cta-btn { background: #d4f53c; color: #0a0a0a; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.73rem; padding: 9px 18px; border-radius: 6px; text-decoration: none; white-space: nowrap; letter-spacing: 0.04em; display: inline-block; }
+.em-needed { margin-bottom: 22px; }
+.em-needed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.em-needed-item { display: flex; align-items: center; gap: 7px; font-size: 0.78rem; color: #555; font-family: 'DM Sans', sans-serif; background: #f8f8f8; border-radius: 6px; padding: 7px 10px; }
+.em-closing { font-size: 0.86rem; color: #555; line-height: 1.7; margin-bottom: 18px; font-family: 'DM Sans', sans-serif; }
+.em-sig { border-top: 1px solid #eee; padding-top: 16px; display: flex; align-items: center; gap: 13px; }
+.em-sig-avatar { width: 40px; height: 40px; border-radius: 50%; background: #0f0f0f; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; color: #d4f53c; flex-shrink: 0; }
+.em-sig-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; color: #111; }
+.em-sig-role { font-size: 0.73rem; color: #999; font-family: 'DM Sans', sans-serif; margin-top: 1px; }
+.em-sig-contact { font-size: 0.7rem; color: #aaa; font-family: 'DM Sans', sans-serif; margin-top: 2px; }
+.em-footer { background: #f5f5f5; padding: 13px 34px; text-align: center; font-size: 0.7rem; color: #bbb; font-family: 'DM Sans', sans-serif; border-top: 1px solid #eee; line-height: 1.6; }
+
 @media (max-width: 820px) {
   .layout { grid-template-columns: 1fr; }
   .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-  .preview-area { padding: 20px 12px; }
-  .topbar { padding: 14px 16px; }
+  .preview-area { padding: 20px 10px; }
+  .topbar { padding: 12px 14px; }
 }
 </style>
 </head>
@@ -396,18 +96,22 @@ body {
 
 <div class="topbar">
   <div class="topbar-title">Kreator <span>Emaili</span></div>
-  <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+  <div class="topbar-controls">
     <div class="pill-group">
-      <span style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; align-self:center;">Wariant:</span>
-      <button class="pill active" onclick="setType('follow', this)">🔁 Follow-up</button>
-      <button class="pill" onclick="setType('cold', this)">❄️ Zimny email</button>
+      <span class="filter-label">Wariant:</span>
+      <button class="pill active" onclick="setType('follow',this)">🔁 Follow-up</button>
+      <button class="pill" onclick="setType('cold',this)">❄️ Zimny email</button>
     </div>
     <div class="sep"></div>
     <div class="pill-group">
-      <span style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; align-self:center;">Klient:</span>
-      <button class="pill active-blue" onclick="setClient('przedszkole', this)">🏫 Przedszkole</button>
-      <button class="pill" onclick="setClient('stolarz', this)">🪚 Stolarz</button>
-      <button class="pill" onclick="setClient('universal', this)">🌐 Uniwersalny</button>
+      <span class="filter-label">Klient:</span>
+      <button class="pill active-blue" onclick="setClient('przedszkole',this)">🏫 Przedszkole</button>
+      <button class="pill" onclick="setClient('zlobek',this)">🍼 Żłobek</button>
+      <button class="pill" onclick="setClient('stolarz',this)">🪚 Stolarz</button>
+      <button class="pill" onclick="setClient('budowlana',this)">🏗️ Budowlana</button>
+      <button class="pill" onclick="setClient('restauracja',this)">🍽️ Restauracja</button>
+      <button class="pill" onclick="setClient('salon',this)">💅 Salon</button>
+      <button class="pill" onclick="setClient('universal',this)">🌐 Uniwersalny</button>
     </div>
   </div>
 </div>
@@ -417,67 +121,35 @@ body {
     <div>
       <div class="sidebar-section-title">Twoje dane</div>
       <div class="field-group">
-        <div>
-          <div class="field-label">Twoje imię</div>
-          <input class="field-input" id="senderName" type="text" placeholder="np. Michał" oninput="render()">
-        </div>
-        <div>
-          <div class="field-label">Twój telefon</div>
-          <input class="field-input" id="senderPhone" type="text" placeholder="np. +48 500 123 456" oninput="render()">
-        </div>
-        <div>
-          <div class="field-label">Twój email</div>
-          <input class="field-input" id="senderEmail" type="text" placeholder="np. michal@webstudio.pl" oninput="render()">
-        </div>
+        <div><div class="field-label">Imię i nazwisko</div><input class="field-input" id="senderName" type="text" placeholder="np. Michał Kowalski" oninput="render()"></div>
+        <div><div class="field-label">Telefon</div><input class="field-input" id="senderPhone" type="text" placeholder="np. +48 500 123 456" oninput="render()"></div>
+        <div><div class="field-label">Email</div><input class="field-input" id="senderEmail" type="text" placeholder="np. michal@webstudio.pl" oninput="render()"></div>
       </div>
     </div>
-
     <hr class="divider-line">
-
     <div>
       <div class="sidebar-section-title">Dane klienta</div>
       <div class="field-group">
-        <div>
-          <div class="field-label">Imię / forma zwrotu</div>
-          <input class="field-input" id="clientName" type="text" placeholder="np. Pani Aniu / Panie Marku" oninput="render()">
-        </div>
-        <div>
-          <div class="field-label">Nazwa firmy / placówki</div>
-          <input class="field-input" id="clientFirm" type="text" placeholder="np. Przedszkole Słoneczko" oninput="render()">
-        </div>
+        <div><div class="field-label">Forma zwrotu</div><input class="field-input" id="clientName" type="text" placeholder="np. Pani Aniu / Panie Marku" oninput="render()"></div>
+        <div><div class="field-label">Nazwa firmy / placówki</div><input class="field-input" id="clientFirm" type="text" placeholder="np. Żłobek Biedronka" oninput="render()"></div>
       </div>
     </div>
-
     <hr class="divider-line">
-
     <div>
       <div class="sidebar-section-title">Wycena</div>
       <div class="field-group">
-        <div>
-          <div class="field-label">Cena projektu (netto)</div>
-          <input class="field-input" id="price" type="text" placeholder="np. 3 000 zł" oninput="render()">
-        </div>
-        <div>
-          <div class="field-label">Zaliczka</div>
-          <input class="field-input" id="deposit" type="text" placeholder="np. 300 zł (10%)" oninput="render()">
-        </div>
+        <div><div class="field-label">Cena projektu (netto)</div><input class="field-input" id="price" type="text" placeholder="np. 3 000 zł" oninput="render()"></div>
+        <div><div class="field-label">Zaliczka</div><input class="field-input" id="deposit" type="text" placeholder="np. 300 zł (10%)" oninput="render()"></div>
       </div>
     </div>
-
     <hr class="divider-line">
-
     <div>
-      <div class="sidebar-section-title">Podgląd tematu</div>
-      <div class="subject-preview" id="subjectBox">
-        <strong id="subjectLine">— — —</strong>
-        <span id="subjectHint"></span>
-      </div>
+      <div class="sidebar-section-title">Temat emaila</div>
+      <div class="subject-preview"><strong id="subjectLine">—</strong><span id="subjectHint"></span></div>
     </div>
-
     <hr class="divider-line">
-
     <button class="copy-btn" id="copyBtn" onclick="copyEmail()">📋 Kopiuj do Gmail (Ctrl+V)</button>
-    <button class="copy-btn" style="background:var(--bg3); color:var(--text); border:1px solid var(--border); margin-top:-10px;" onclick="copyPlain()">📄 Kopiuj tekst (plain)</button>
+    <button class="copy-btn copy-btn-secondary" onclick="copyPlain()">📄 Kopiuj tekst (plain)</button>
   </div>
 
   <div class="preview-area">
@@ -492,7 +164,7 @@ let clientType = 'przedszkole';
 function setType(t, btn) {
   emailType = t;
   document.querySelectorAll('.topbar .pill').forEach(b => {
-    if(['🔁 Follow-up','❄️ Zimny email'].includes(b.textContent.trim())) b.className = 'pill';
+    if (['🔁 Follow-up','❄️ Zimny email'].includes(b.textContent.trim())) b.className = 'pill';
   });
   btn.classList.add('active');
   render();
@@ -501,129 +173,162 @@ function setType(t, btn) {
 function setClient(c, btn) {
   clientType = c;
   document.querySelectorAll('.topbar .pill').forEach(b => {
-    if(['🏫 Przedszkole','🪚 Stolarz','🌐 Uniwersalny'].includes(b.textContent.trim())) b.className = 'pill';
+    if (['🏫 Przedszkole','🍼 Żłobek','🪚 Stolarz','🏗️ Budowlana','🍽️ Restauracja','💅 Salon','🌐 Uniwersalny'].includes(b.textContent.trim())) b.className = 'pill';
   });
   btn.classList.add('active-blue');
   render();
 }
 
-function v(id) {
-  return document.getElementById(id)?.value?.trim() || '';
-}
+function v(id) { return document.getElementById(id)?.value?.trim() || ''; }
 
-function getContent() {
-  const name = v('senderName') || '[Twoje imię]';
-  const phone = v('senderPhone') || '[telefon]';
-  const email = v('senderEmail') || '[email]';
-  const client = v('clientName') || '[imię klienta]';
-  const firm = v('clientFirm') || '[nazwa firmy]';
-  const price = v('price') || '3 000 zł';
-  const deposit = v('deposit') || '300 zł';
-  const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-
-  const scopes = {
-    przedszkole: [
+const DATA = {
+  przedszkole: {
+    scope: [
       { icon: '🏫', text: 'Strona wizytówka — strona główna, oferta zajęć, wyżywienie, cennik, kontakt z mapą' },
-      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "przedszkole [miasto]"), Google Search Console' },
-      { icon: '📋', text: 'Formularz kontaktowy — zgłoszenia trafiają od razu na Twój email' },
-      { icon: '🌐', text: 'Domena i hosting — opieka techniczna w cenie, ~150 zł/rok' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "przedszkole Grodzisk"), Google Search Console' },
+      { icon: '📋', text: 'Formularz kontaktowy — zgłoszenia trafiają bezpośrednio na Twój email' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
       { icon: '⭐', text: 'Wizytówka Google — założenie i konfiguracja profilu' },
     ],
-    stolarz: [
-      { icon: '🪚', text: 'Strona wizytówka — strona główna, galeria realizacji, zakres usług, kontakt' },
-      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "stolarz [miasto]"), Google Search Console' },
-      { icon: '📋', text: 'Formularz kontaktowy / wycena — zapytania trafiają na Twój email' },
-      { icon: '🌐', text: 'Domena i hosting — opieka techniczna w cenie, ~150 zł/rok' },
-      { icon: '⭐', text: 'Opinie Google — embed opinii bezpośrednio na stronie' },
+    needed: ['Zdjęcia placówki', 'Logo (jeśli brak — zrobimy)', 'Informacje o zajęciach', 'Cennik', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej placówki'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego przedszkola'} — propozycja` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę i czas, który Pan/Pani poświęcił/a. Zgodnie z ustaleniami przesyłam podsumowanie zakresu projektu oraz warunki współpracy. Mam nadzieję, że poniższe informacje są przejrzyste — w razie pytań proszę śmiało pisać lub dzwonić.`,
+      cold: (f) => `Zwracam się do Państwa, ponieważ zauważyłem, że ${f||'Wasza placówka'} nie posiada jeszcze własnej strony internetowej — lub obecna mogłaby działać skuteczniej. Rodzice coraz częściej szukają informacji o przedszkolach w Google przed podjęciem decyzji. Chciałbym zaproponować rozwiązanie, które pozwoli Wam się wyróżnić i dotrzeć do nowych rodzin.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona internetowa dla ${f||'placówki'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego przedszkola'} — bezpłatna propozycja` },
+  },
+  zlobek: {
+    scope: [
+      { icon: '🍼', text: 'Strona wizytówka — strona główna, oferta, harmonogram dnia, galeria, cennik, kontakt' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "żłobek prywatny Warszawa"), Google Search Console' },
+      { icon: '📋', text: 'Formularz zapisu / kontaktowy — zgłoszenia i pytania trafiają na Twój email' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
+      { icon: '⭐', text: 'Wizytówka Google + profile na platformach (np. Przedszkolowo)' },
     ],
-    universal: [
+    needed: ['Zdjęcia placówki i sal', 'Logo (jeśli brak — zrobimy)', 'Opis oferty i harmonogram', 'Cennik / info o dofinansowaniu', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszego żłobka'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego żłobka'} — propozycja` },
+    intros: {
+      follow: (f) => `Dziękuję za rozmowę — cieszę się, że mogę pomóc ${f||'Waszemu żłobkowi'} zaistnieć w internecie. Zgodnie z ustaleniami przesyłam pełne podsumowanie zakresu i warunki współpracy.`,
+      cold: (f) => `Piszę do Państwa, ponieważ zauważyłem, że ${f||'Wasz żłobek'} nie posiada jeszcze własnej strony internetowej. Rodzice szukający prywatnego żłobka w okolicy trafiają dziś przede wszystkim przez Google — dobra strona z odpowiednimi słowami kluczowymi może znacząco zwiększyć liczbę zapytań o wolne miejsca.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'żłobka'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego żłobka'} — propozycja` },
+  },
+  stolarz: {
+    scope: [
+      { icon: '🪚', text: 'Strona wizytówka — strona główna, galeria realizacji, zakres usług, kontakt' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "stolarz na wymiar Poznań"), Google Search Console' },
+      { icon: '📋', text: 'Formularz wyceny — zapytania i zlecenia trafiają bezpośrednio na Twój email' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
+      { icon: '⭐', text: 'Embed opinii Google — opinie klientów widoczne bezpośrednio na stronie' },
+    ],
+    needed: ['Zdjęcia realizacji', 'Logo (jeśli brak — zrobimy)', 'Zakres usług / opis', 'Dane do polityki prywatności', 'Przykłady stron które się podobają'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej firmy'}`, cold: (f) => `Więcej zleceń dzięki stronie — propozycja dla ${f||'Waszej firmy'}` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę. Zgodnie z ustaleniami przesyłam podsumowanie propozycji oraz warunki współpracy. Zależy mi, żeby wszystko było jasne od początku — w razie pytań proszę śmiało pisać lub dzwonić.`,
+      cold: (f) => `Piszę do Państwa, ponieważ zauważyłem że ${f||'Wasza firma'} nie jest jeszcze widoczna w Google — a osoby szukające stolarza w okolicy trafiają do konkurencji. Chciałbym zaproponować prostą, skuteczną stronę z galerią realizacji, która to zmieni i zacznie przyciągać nowych klientów.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'firmy'}`, cold: (f) => `Więcej zleceń ze strony internetowej — propozycja dla ${f||'Waszej firmy'}` },
+  },
+  budowlana: {
+    scope: [
+      { icon: '🏗️', text: 'Strona wizytówka — strona główna, zakres usług, realizacje, o firmie, kontakt z mapą' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "firma remontowa Kraków"), Google Search Console' },
+      { icon: '📋', text: 'Formularz wyceny — klient opisuje zakres, Ty dostajesz zapytanie na email' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
+      { icon: '⭐', text: 'Wizytówka Google — założenie, konfiguracja i zbieranie opinii' },
+    ],
+    needed: ['Zdjęcia realizacji (przed/po)', 'Logo (jeśli brak — zrobimy)', 'Zakres usług', 'Obszar działania', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej firmy'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej firmy budowlanej'} — propozycja` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę. Przesyłam podsumowanie zakresu i warunki — zależy mi żeby wszystko było przejrzyste od początku. W razie pytań proszę dzwonić lub pisać.`,
+      cold: (f) => `Piszę do Państwa, ponieważ firmy budowlane i remontowe z coraz większym skutkiem pozyskują klientów przez internet — a ${f||'Wasza firma'} nie jest jeszcze w Google. Ktoś szukający dziś ekipy remontowej w Waszej okolicy trafi do konkurencji. Mam gotowe rozwiązanie, które to zmieni.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'firmy'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej firmy'} — propozycja` },
+  },
+  restauracja: {
+    scope: [
+      { icon: '🍽️', text: 'Strona wizytówka — menu, galeria, rezerwacje, o nas, kontakt z mapą i godzinami' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "restauracja włoska Wrocław"), Google Search Console' },
+      { icon: '📋', text: 'Formularz rezerwacji — gość wybiera datę, liczbę osób, dostajesz email' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
+      { icon: '⭐', text: 'Embed opinii Google + wizytówka Google — konfiguracja i aktualizacja' },
+    ],
+    needed: ['Zdjęcia sali i dań', 'Logo / identyfikacja wizualna', 'Menu (PDF lub tekst)', 'Godziny otwarcia', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej restauracji'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej restauracji'} — propozycja` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę i Pana/Pani czas. Przesyłam podsumowanie zakresu projektu — mam nadzieję że wszystko jest jasne. W razie pytań proszę śmiało pisać lub dzwonić.`,
+      cold: (f) => `Piszę do Państwa, ponieważ ${f||'Wasza restauracja'} zasługuje na piękną stronę, która zachęci gości jeszcze zanim przestąpią próg. Większość osób szuka dziś miejsca na kolację przez Google — dobra strona z menu, zdjęciami i opcją rezerwacji online robi ogromną różnicę.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'restauracji'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej restauracji'} — propozycja` },
+  },
+  salon: {
+    scope: [
+      { icon: '💅', text: 'Strona wizytówka — usługi z cennikiem, galeria efektów, rezerwacja, kontakt' },
+      { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "salon urody Gdańsk"), Google Search Console' },
+      { icon: '📋', text: 'Formularz / link do rezerwacji online — integracja z Booksy lub własny formularz' },
+      { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
+      { icon: '⭐', text: 'Embed opinii Google + wizytówka Google — konfiguracja profilu' },
+    ],
+    needed: ['Zdjęcia salonu i efektów', 'Logo (jeśli brak — zrobimy)', 'Lista usług z cenami', 'Link do Booksy (jeśli jest)', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszego salonu'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego salonu'} — propozycja` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę — cieszę się na współpracę! Przesyłam podsumowanie zakresu i warunki. W razie pytań lub wątpliwości proszę śmiało pisać lub dzwonić.`,
+      cold: (f) => `Piszę do Państwa z propozycją stworzenia profesjonalnej strony dla ${f||'Waszego salonu'}. Klientki szukają dziś salonów przez Google i Instagram — piękna strona z galerią efektów, cennikiem i opcją rezerwacji online to dziś standard, który realnie zwiększa liczbę nowych klientek.`,
+    },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'salonu'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego salonu'} — propozycja` },
+  },
+  universal: {
+    scope: [
       { icon: '💻', text: 'Strona wizytówka — strona główna, oferta, o firmie, kontakt z mapą' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne, konfiguracja Google Search Console' },
       { icon: '📋', text: 'Formularz kontaktowy — zgłoszenia trafiają bezpośrednio na Twój email' },
       { icon: '🌐', text: 'Domena i hosting — pełna opieka techniczna, ~150 zł/rok' },
       { icon: '⭐', text: 'Wizytówka Google — założenie i optymalizacja profilu' },
     ],
-  };
-
-  const needed = {
-    przedszkole: ['Zdjęcia placówki', 'Logo (jeśli brak — zrobimy)', 'Informacje o zajęciach', 'Cennik', 'Dane do polityki prywatności'],
-    stolarz: ['Zdjęcia realizacji', 'Logo (jeśli brak — zrobimy)', 'Zakres usług / opis', 'Dane do polityki prywatności', 'Przykłady stron które się podobają'],
-    universal: ['Logo firmy', 'Zdjęcia / grafiki', 'Opis oferty i usług', 'Dane kontaktowe i adres', 'Dane do polityki prywatności'],
-  };
-
-  const headlines = {
-    follow: {
-      przedszkole: 'Podsumowanie ustaleń — strona dla ' + (firm||'Waszej placówki'),
-      stolarz: 'Podsumowanie ustaleń — strona dla ' + (firm||'Waszej firmy'),
-      universal: 'Podsumowanie naszej rozmowy'
+    needed: ['Logo firmy', 'Zdjęcia / grafiki', 'Opis oferty i usług', 'Dane kontaktowe i adres', 'Dane do polityki prywatności'],
+    headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej firmy'}`, cold: (f) => `Propozycja strony internetowej dla ${f||'Waszej firmy'}` },
+    intros: {
+      follow: () => `Dziękuję za rozmowę i Pana/Pani czas. Przesyłam podsumowanie zakresu projektu oraz warunki współpracy — mam nadzieję, że poniższe informacje są przejrzyste i kompletne.`,
+      cold: (f) => `Piszę do Państwa z propozycją stworzenia profesjonalnej strony internetowej dla ${f||'Waszej firmy'}. Dobrze zaprojektowana strona to dziś podstawa widoczności w Google i pierwsze wrażenie dla potencjalnych klientów.`,
     },
-    cold: {
-      przedszkole: 'Strona internetowa dla ' + (firm||'Waszego przedszkola') + ' — propozycja',
-      stolarz: 'Więcej zleceń dzięki stronie — propozycja dla ' + (firm||'Waszej firmy'),
-      universal: 'Propozycja strony internetowej dla ' + (firm||'Waszej firmy')
-    },
-  };
+    subjects: { follow: () => `Podsumowanie rozmowy — propozycja strony`, cold: (f) => `Profesjonalna strona internetowa — propozycja dla ${f||'Waszej firmy'}` },
+  },
+};
 
-  const intros = {
-    follow: {
-      przedszkole: `Dziękuję za rozmowę i czas, który Pan/Pani poświęcił/a. Zgodnie z ustaleniami przesyłam podsumowanie zakresu projektu oraz warunki współpracy. Mam nadzieję, że poniższe informacje są przejrzyste — w razie pytań proszę śmiało pisać lub dzwonić.`,
-      stolarz: `Dziękuję za rozmowę. Zgodnie z ustaleniami przesyłam podsumowanie propozycji oraz warunki współpracy. Zależy mi, żeby wszystko było jasne od początku — w razie pytań proszę śmiało pisać lub dzwonić.`,
-      universal: `Dziękuję za rozmowę i Pana/Pani czas. Przesyłam podsumowanie zakresu projektu oraz warunki współpracy — mam nadzieję, że poniższe informacje są przejrzyste i kompletne.`,
-    },
-    cold: {
-      przedszkole: `Zwracam się do Państwa, ponieważ zauważyłem, że ${firm||'Wasza placówka'} nie posiada jeszcze własnej strony internetowej — lub obecna mogłaby działać skuteczniej. Rodzice coraz częściej szukają informacji o przedszkolach w Google przed podjęciem decyzji. Chciałbym zaproponować rozwiązanie, które pozwoli Wam się wyróżnić i dotrzeć do nowych rodzin.`,
-      stolarz: `Piszę do Państwa, ponieważ zauważyłem że ${firm||'Wasza firma'} nie jest jeszcze widoczna w Google — a osoby szukające stolarza w okolicy trafiają do konkurencji. Chciałbym zaproponować prostą, skuteczną stronę, która to zmieni.`,
-      universal: `Piszę do Państwa z propozycją stworzenia profesjonalnej strony internetowej dla ${firm||'Waszej firmy'}. Dobrze zaprojektowana strona to dziś podstawa widoczności w Google i pierwsze wrażenie dla potencjalnych klientów.`,
-    },
-  };
+const CLOSINGS = {
+  follow: `Proszę o potwierdzenie, czy zaproponowane warunki są akceptowalne. Po potwierdzeniu przesyłam umowę i od razu biorę się do pracy — orientacyjny czas realizacji to tydzień roboczy + ewentualne poprawki i uzupełnienie treści.\n\nW razie pytań pozostaję do dyspozycji.`,
+  cold: `Jeśli temat Państwa zainteresuje — chętnie porozmawiam, odpowiem na pytania lub pokażę przykłady realizacji. Wystarczy odpisać na tego maila lub zadzwonić.\n\nBez zobowiązań, bez presji.`,
+};
 
-  const closings = {
-    follow: `Proszę o potwierdzenie, czy zaproponowane warunki są akceptowalne. Po potwierdzeniu przesyłam umowę i od razu biorę się do pracy — orientacyjny czas realizacji to tydzień + ewentualne poprawki.\n\nW razie pytań pozostaję do dyspozycji.`,
-    cold: `Jeśli temat Państwa zainteresuje — chętnie porozmawiam, odpowiem na pytania lub pokażę przykłady realizacji. Wystarczy odpisać na tego maila lub zadzwonić.\n\nBez zobowiązań, bez presji.`,
-  };
-
-  const subjects = {
-    follow: {
-      przedszkole: `Podsumowanie rozmowy — strona internetowa dla ${firm||'placówki'}`,
-      stolarz: `Podsumowanie rozmowy — strona dla ${firm||'firmy'}`,
-      universal: `Podsumowanie rozmowy — propozycja strony`
-    },
-    cold: {
-      przedszkole: `Strona internetowa dla ${firm||'Waszego przedszkola'} — bezpłatna propozycja`,
-      stolarz: `Więcej zleceń ze strony internetowej — propozycja dla ${firm||'Waszej firmy'}`,
-      universal: `Profesjonalna strona internetowa — propozycja dla ${firm||'Waszej firmy'}`
-    },
-  };
-
+function getContent() {
+  const name = v('senderName') || '[Twoje imię]';
+  const phone = v('senderPhone') || '[telefon]';
+  const email = v('senderEmail') || '[email]';
+  const client = v('clientName') || '[imię klienta]';
+  const firm = v('clientFirm') || '';
+  const price = v('price') || '3 000 zł';
+  const deposit = v('deposit') || '300 zł';
+  const initials = name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+  const d = DATA[clientType];
   return {
     name, phone, email, client, firm, price, deposit, initials,
-    scope: scopes[clientType],
-    needed: needed[clientType],
-    headline: headlines[emailType][clientType],
-    intro: intros[emailType][clientType],
-    closing: closings[emailType],
-    subject: subjects[emailType][clientType],
+    scope: d.scope, needed: d.needed,
+    headline: d.headlines[emailType](firm),
+    intro: d.intros[emailType](firm),
+    closing: CLOSINGS[emailType],
+    subject: d.subjects[emailType](firm),
     badgeLabel: emailType === 'follow' ? 'Follow-up' : 'Nowa propozycja',
   };
 }
 
 function render() {
   const d = getContent();
-
   document.getElementById('subjectLine').textContent = d.subject;
   document.getElementById('subjectHint').textContent = emailType === 'follow' ? 'Temat follow-up' : 'Temat zimny email';
-
-  const scopeHTML = d.scope.map(s => `
-    <div class="em-scope-item">
-      <div class="em-scope-dot"></div>
-      <div><strong style="font-weight:500;">${s.icon}</strong> ${s.text}</div>
-    </div>`).join('');
-
-  const neededHTML = d.needed.map(n => `
-    <div class="em-needed-item"><span class="em-needed-icon">□</span>${n}</div>`).join('');
-
-  const closingLines = d.closing.split('\n\n').map(p => `<p style="margin-bottom:12px;">${p}</p>`).join('');
-
+  const scopeHTML = d.scope.map(s => `<div class="em-scope-item"><div class="em-scope-dot"></div><div>${s.icon} ${s.text}</div></div>`).join('');
+  const neededHTML = d.needed.map(n => `<div class="em-needed-item">□ ${n}</div>`).join('');
+  const closingHTML = d.closing.split('\n\n').map(p => `<p style="margin-bottom:11px;">${p}</p>`).join('');
   document.getElementById('emailPreview').innerHTML = `
     <div class="em-header">
       <div class="em-header-top">
@@ -640,36 +345,18 @@ function render() {
       <div class="em-scope">${scopeHTML}</div>
       <div class="em-section-title">Wycena</div>
       <div class="em-pricing">
-        <div class="em-price-card">
-          <div class="em-price-label">Projekt (jednorazowo)</div>
-          <div class="em-price-value">${d.price}</div>
-          <div class="em-price-note">netto · zaliczka ${d.deposit}</div>
-        </div>
-        <div class="em-price-card">
-          <div class="em-price-label">Hosting + domena</div>
-          <div class="em-price-value">~300 zł</div>
-          <div class="em-price-note">netto · rocznie</div>
-        </div>
-        <div class="em-price-card">
-          <div class="em-price-label">Zmiany na stronie</div>
-          <div class="em-price-value">150 zł/h</div>
-          <div class="em-price-note">netto · po realizacji</div>
-        </div>
-        <div class="em-price-card">
-          <div class="em-price-label">Czas realizacji</div>
-          <div class="em-price-value">~1 tydzień</div>
-          <div class="em-price-note">+ poprawki i treści</div>
-        </div>
+        <div class="em-price-card"><div class="em-price-label">Projekt (jednorazowo)</div><div class="em-price-value">${d.price}</div><div class="em-price-note">netto · zaliczka ${d.deposit}</div></div>
+        <div class="em-price-card"><div class="em-price-label">Hosting + domena</div><div class="em-price-value">~300 zł</div><div class="em-price-note">netto · rocznie</div></div>
+        <div class="em-price-card"><div class="em-price-label">Zmiany na stronie</div><div class="em-price-value">150 zł/h</div><div class="em-price-note">netto · po realizacji</div></div>
+        <div class="em-price-card"><div class="em-price-label">Czas realizacji</div><div class="em-price-value">~1 tydzień</div><div class="em-price-note">+ poprawki i treści</div></div>
       </div>
       <div class="em-section-title">Co będzie potrzebne z Państwa strony</div>
-      <div class="em-needed">
-        <div class="em-needed-grid">${neededHTML}</div>
-      </div>
+      <div class="em-needed"><div class="em-needed-grid">${neededHTML}</div></div>
       <div class="em-cta-box">
-        <div class="em-cta-text"><strong>Masz pytania?</strong> Zadzwoń lub odpisz na tego maila — odpowiem tego samego dnia.</div>
+        <div class="em-cta-text"><strong>Masz pytania?</strong> Zadzwoń lub odpisz — odpowiem tego samego dnia.</div>
         <a href="tel:${d.phone}" class="em-cta-btn">📞 ${d.phone||'Zadzwoń'}</a>
       </div>
-      <div class="em-closing">${closingLines}</div>
+      <div class="em-closing">${closingHTML}</div>
       <div class="em-sig">
         <div class="em-sig-avatar">${d.initials||'WS'}</div>
         <div>
@@ -682,31 +369,23 @@ function render() {
     <div class="em-footer">
       Wszystkie kwoty podane są w cenach netto. Faktura Proforma przed rozpoczęciem prac, Faktura VAT po zapłacie.<br>
       W przypadku zakończenia współpracy przekazuję pełny dostęp do domeny, hostingu i kod źródłowy strony.
-    </div>
-  `;
+    </div>`;
 }
 
 async function copyEmail() {
   const btn = document.getElementById('copyBtn');
   const frame = document.getElementById('emailPreview');
-
-  const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-</head><body style="margin:0;padding:0;background:#ffffff;font-family:'DM Sans',sans-serif;">
-${frame.innerHTML}
-</body></html>`;
-
+  const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></head><body style="margin:0;padding:0;background:#fff;font-family:'DM Sans',sans-serif;">${frame.innerHTML}</body></html>`;
   try {
     const blob = new Blob([fullHtml], { type: 'text/html' });
-    const item = new ClipboardItem({ 'text/html': blob });
-    await navigator.clipboard.write([item]);
+    await navigator.clipboard.write([new ClipboardItem({ 'text/html': blob })]);
     btn.textContent = '✅ Gotowe! Wklej w Gmail (Ctrl+V)';
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = '📋 Kopiuj do Gmail (Ctrl+V)'; btn.classList.remove('copied'); }, 3000);
   } catch (e) {
     try {
       await navigator.clipboard.writeText(fullHtml);
-      btn.textContent = '⚠️ Skopiowano HTML (użyj rozszerzenia)';
+      btn.textContent = '⚠️ Skopiowano HTML';
       setTimeout(() => { btn.textContent = '📋 Kopiuj do Gmail (Ctrl+V)'; }, 3000);
     } catch (e2) {
       btn.textContent = '❌ Błąd — spróbuj ręcznie';
@@ -722,7 +401,7 @@ function copyPlain() {
   const text = `Temat: ${d.subject}\n\nSzanowna/y ${d.client},\n\n${d.intro}\n\nZAKRES PROJEKTU:\n${scopeText}\n\nWYCENA:\n  • Projekt: ${d.price} netto (zaliczka ${d.deposit})\n  • Hosting + domena: ~300 zł netto/rok\n  • Zmiany na stronie: 150 zł/h netto\n  • Czas realizacji: ~1 tydzień + poprawki\n\nCO BĘDZIE POTRZEBNE:\n${neededText}\n\n${d.closing}\n\n--\n${d.name}\n${d.phone}\n${d.email}`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelectorAll('.copy-btn')[1];
-    btn.textContent = '✅ Skopiowano tekst!';
+    btn.textContent = '✅ Skopiowano!';
     setTimeout(() => { btn.textContent = '📄 Kopiuj tekst (plain)'; }, 2000);
   });
 }
