@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -15,82 +16,84 @@
 html, body { height: 100%; }
 body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; display: flex; flex-direction: column; min-height: 100vh; }
 
-.topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 200; flex-wrap: wrap; gap: 10px; }
-.topbar-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; white-space: nowrap; }
-.topbar-title span { color: var(--accent); }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid var(–border); background: var(–bg); position: sticky; top: 0; z-index: 200; flex-wrap: wrap; gap: 10px; }
+.topbar-title { font-family: ‘Syne’, sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; white-space: nowrap; }
+.topbar-title span { color: var(–accent); }
 .topbar-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .pill-group { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
-.filter-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; }
-.pill { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500; padding: 4px 11px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--muted2); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
-.pill:hover { border-color: #3a3a3a; color: var(--text); }
-.pill.active { border-color: var(--accent); color: var(--accent); background: rgba(212,245,60,0.08); }
-.pill.active-blue { border-color: var(--accent2); color: var(--accent2); background: rgba(79,142,247,0.08); }
-.sep { width: 1px; height: 22px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+.filter-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(–muted); white-space: nowrap; }
+.pill { font-family: ‘DM Sans’, sans-serif; font-size: 0.72rem; font-weight: 500; padding: 4px 11px; border-radius: 20px; border: 1px solid var(–border); background: transparent; color: var(–muted2); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+.pill:hover { border-color: #3a3a3a; color: var(–text); }
+.pill.active { border-color: var(–accent); color: var(–accent); background: rgba(212,245,60,0.08); }
+.pill.active-blue { border-color: var(–accent2); color: var(–accent2); background: rgba(79,142,247,0.08); }
+.sep { width: 1px; height: 22px; background: var(–border); margin: 0 4px; flex-shrink: 0; }
 
 .layout { display: grid; grid-template-columns: 320px 1fr; flex: 1; min-height: 0; }
-.sidebar { border-right: 1px solid var(--border); overflow-y: auto; padding: 20px 18px; display: flex; flex-direction: column; gap: 16px; }
-.sidebar-section-title { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 7px; font-weight: 500; }
+.sidebar { border-right: 1px solid var(–border); overflow-y: auto; padding: 20px 18px; display: flex; flex-direction: column; gap: 16px; }
+.sidebar-section-title { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(–muted); margin-bottom: 7px; font-weight: 500; }
 .field-group { display: flex; flex-direction: column; gap: 7px; }
-.field-label { font-size: 0.75rem; color: var(--muted2); margin-bottom: 1px; }
-.field-input { background: var(--bg3); border: 1px solid var(--border); border-radius: 7px; padding: 8px 11px; font-family: 'DM Sans', sans-serif; font-size: 0.81rem; color: var(--text); width: 100%; transition: border-color 0.15s; }
-.field-input:focus { outline: none; border-color: var(--accent); }
-.field-input::placeholder { color: var(--muted); }
-.divider-line { border: none; border-top: 1px solid var(--border); }
-.copy-btn { width: 100%; padding: 10px; background: var(--accent); border: none; border-radius: 7px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; color: #0a0a0a; cursor: pointer; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.04em; }
+.field-label { font-size: 0.75rem; color: var(–muted2); margin-bottom: 1px; }
+.field-input { background: var(–bg3); border: 1px solid var(–border); border-radius: 7px; padding: 8px 11px; font-family: ‘DM Sans’, sans-serif; font-size: 0.81rem; color: var(–text); width: 100%; transition: border-color 0.15s; }
+.field-input:focus { outline: none; border-color: var(–accent); }
+.field-input::placeholder { color: var(–muted); }
+.divider-line { border: none; border-top: 1px solid var(–border); }
+.copy-btn { width: 100%; padding: 10px; background: var(–accent); border: none; border-radius: 7px; font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 0.8rem; color: #0a0a0a; cursor: pointer; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.04em; }
 .copy-btn:hover { opacity: 0.88; }
 .copy-btn:active { transform: scale(0.98); }
 .copy-btn.copied { background: #3ecf8e; }
-.copy-btn-secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); margin-top: -8px; }
-.subject-preview { background: var(--bg3); border: 1px solid var(--border); border-radius: 7px; padding: 9px 12px; font-size: 0.78rem; color: var(--muted2); line-height: 1.5; }
-.subject-preview strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 2px; font-size: 0.8rem; }
+.copy-btn-secondary { background: var(–bg3); color: var(–text); border: 1px solid var(–border); margin-top: -8px; }
+.subject-preview { background: var(–bg3); border: 1px solid var(–border); border-radius: 7px; padding: 9px 12px; font-size: 0.78rem; color: var(–muted2); line-height: 1.5; }
+.subject-preview strong { color: var(–text); font-weight: 500; display: block; margin-bottom: 2px; font-size: 0.8rem; }
 
 .preview-area { background: #1c1c1c; overflow-y: auto; display: flex; align-items: flex-start; justify-content: center; padding: 36px 20px; }
 .email-frame { width: 100%; max-width: 600px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 
+/* EMAIL STYLES */
 .em-header { background: #0f0f0f; padding: 26px 34px 22px; border-bottom: 3px solid #d4f53c; }
 .em-header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.em-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; }
+.em-logo { font-family: ‘Syne’, sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em; }
 .em-logo span { color: #d4f53c; }
-.em-badge { font-size: 0.62rem; font-family: 'DM Sans', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 9px; border-radius: 20px; border: 1px solid; }
+.em-badge { font-size: 0.62rem; font-family: ‘DM Sans’, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 9px; border-radius: 20px; border: 1px solid; }
 .em-badge.follow { border-color: #d4f53c; color: #d4f53c; }
 .em-badge.cold { border-color: #4f8ef7; color: #4f8ef7; }
-.em-headline { color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; }
-.em-sub { color: #888; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; margin-top: 5px; font-weight: 300; }
+.em-headline { color: #fff; font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; }
+.em-sub { color: #888; font-family: ‘DM Sans’, sans-serif; font-size: 0.78rem; margin-top: 5px; font-weight: 300; }
 .em-body { padding: 28px 34px; background: #fff; }
-.em-greeting { font-size: 0.93rem; color: #333; margin-bottom: 14px; line-height: 1.6; font-family: 'DM Sans', sans-serif; }
-.em-intro { font-size: 0.88rem; color: #444; line-height: 1.7; margin-bottom: 22px; font-family: 'DM Sans', sans-serif; }
-.em-section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 9px; }
+.em-greeting { font-size: 0.93rem; color: #333; margin-bottom: 14px; line-height: 1.6; font-family: ‘DM Sans’, sans-serif; }
+.em-intro { font-size: 0.88rem; color: #444; line-height: 1.7; margin-bottom: 22px; font-family: ‘DM Sans’, sans-serif; }
+.em-section-title { font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 9px; }
 .em-scope { background: #f8f8f8; border-radius: 8px; padding: 16px 18px; margin-bottom: 22px; border-left: 3px solid #d4f53c; }
-.em-scope-item { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 9px; font-size: 0.83rem; color: #333; font-family: 'DM Sans', sans-serif; line-height: 1.5; }
+.em-scope-item { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 9px; font-size: 0.83rem; color: #333; font-family: ‘DM Sans’, sans-serif; line-height: 1.5; }
 .em-scope-item:last-child { margin-bottom: 0; }
 .em-scope-dot { width: 5px; height: 5px; background: #d4f53c; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
 .em-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 22px; }
 .em-price-card { background: #f8f8f8; border-radius: 8px; padding: 13px 15px; border: 1px solid #eee; }
-.em-price-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; font-family: 'DM Sans', sans-serif; margin-bottom: 3px; }
-.em-price-value { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: #111; }
-.em-price-note { font-size: 0.7rem; color: #aaa; font-family: 'DM Sans', sans-serif; margin-top: 2px; }
+.em-price-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; font-family: ‘DM Sans’, sans-serif; margin-bottom: 3px; }
+.em-price-value { font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 1.05rem; color: #111; }
+.em-price-note { font-size: 0.7rem; color: #aaa; font-family: ‘DM Sans’, sans-serif; margin-top: 2px; }
 .em-cta-box { background: #0f0f0f; border-radius: 8px; padding: 18px 22px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
-.em-cta-text { font-size: 0.85rem; color: #ccc; font-family: 'DM Sans', sans-serif; line-height: 1.5; flex: 1; }
+.em-cta-text { font-size: 0.85rem; color: #ccc; font-family: ‘DM Sans’, sans-serif; line-height: 1.5; flex: 1; }
 .em-cta-text strong { color: #fff; }
-.em-cta-btn { background: #d4f53c; color: #0a0a0a; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.73rem; padding: 9px 18px; border-radius: 6px; text-decoration: none; white-space: nowrap; letter-spacing: 0.04em; display: inline-block; }
+.em-cta-btn { background: #d4f53c; color: #0a0a0a; font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 0.73rem; padding: 9px 18px; border-radius: 6px; text-decoration: none; white-space: nowrap; letter-spacing: 0.04em; display: inline-block; }
 .em-needed { margin-bottom: 22px; }
 .em-needed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-.em-needed-item { display: flex; align-items: center; gap: 7px; font-size: 0.78rem; color: #555; font-family: 'DM Sans', sans-serif; background: #f8f8f8; border-radius: 6px; padding: 7px 10px; }
-.em-closing { font-size: 0.86rem; color: #555; line-height: 1.7; margin-bottom: 18px; font-family: 'DM Sans', sans-serif; }
+.em-needed-item { display: flex; align-items: center; gap: 7px; font-size: 0.78rem; color: #555; font-family: ‘DM Sans’, sans-serif; background: #f8f8f8; border-radius: 6px; padding: 7px 10px; }
+.em-closing { font-size: 0.86rem; color: #555; line-height: 1.7; margin-bottom: 18px; font-family: ‘DM Sans’, sans-serif; }
 .em-sig { border-top: 1px solid #eee; padding-top: 16px; display: flex; align-items: center; gap: 13px; }
-.em-sig-avatar { width: 40px; height: 40px; border-radius: 50%; background: #0f0f0f; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; color: #d4f53c; flex-shrink: 0; }
-.em-sig-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; color: #111; }
-.em-sig-role { font-size: 0.73rem; color: #999; font-family: 'DM Sans', sans-serif; margin-top: 1px; }
-.em-sig-contact { font-size: 0.7rem; color: #aaa; font-family: 'DM Sans', sans-serif; margin-top: 2px; }
-.em-footer { background: #f5f5f5; padding: 13px 34px; text-align: center; font-size: 0.7rem; color: #bbb; font-family: 'DM Sans', sans-serif; border-top: 1px solid #eee; line-height: 1.6; }
+.em-sig-avatar { width: 40px; height: 40px; border-radius: 50%; background: #0f0f0f; display: flex; align-items: center; justify-content: center; font-family: ‘Syne’, sans-serif; font-weight: 800; font-size: 0.85rem; color: #d4f53c; flex-shrink: 0; }
+.em-sig-name { font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 0.85rem; color: #111; }
+.em-sig-role { font-size: 0.73rem; color: #999; font-family: ‘DM Sans’, sans-serif; margin-top: 1px; }
+.em-sig-contact { font-size: 0.7rem; color: #aaa; font-family: ‘DM Sans’, sans-serif; margin-top: 2px; }
+.em-footer { background: #f5f5f5; padding: 13px 34px; text-align: center; font-size: 0.7rem; color: #bbb; font-family: ‘DM Sans’, sans-serif; border-top: 1px solid #eee; line-height: 1.6; }
 
 @media (max-width: 820px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-  .preview-area { padding: 20px 10px; }
-  .topbar { padding: 12px 14px; }
+.layout { grid-template-columns: 1fr; }
+.sidebar { border-right: none; border-bottom: 1px solid var(–border); }
+.preview-area { padding: 20px 10px; }
+.topbar { padding: 12px 14px; }
 }
 </style>
+
 </head>
 <body>
 
@@ -136,10 +139,28 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-s
     </div>
     <hr class="divider-line">
     <div>
-      <div class="sidebar-section-title">Wycena</div>
-      <div class="field-group">
-        <div><div class="field-label">Cena projektu (netto)</div><input class="field-input" id="price" type="text" placeholder="np. 3 000 zł" oninput="render()"></div>
-        <div><div class="field-label">Zaliczka</div><input class="field-input" id="deposit" type="text" placeholder="np. 300 zł (10%)" oninput="render()"></div>
+      <div class="sidebar-section-title">Kafelki w emailu</div>
+      <div class="field-group" style="gap:7px;">
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;font-size:0.8rem;color:var(--muted2);padding:7px 10px;background:var(--bg3);border-radius:6px;border:1px solid var(--border);">
+          <input type="checkbox" id="chk-hosting" onchange="render()" checked style="accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;">
+          🌐 Hosting + domena
+        </label>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;font-size:0.8rem;color:var(--muted2);padding:7px 10px;background:var(--bg3);border-radius:6px;border:1px solid var(--border);">
+          <input type="checkbox" id="chk-changes" onchange="render()" checked style="accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;">
+          🔧 Zmiany na stronie
+        </label>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;font-size:0.8rem;color:var(--muted2);padding:7px 10px;background:var(--bg3);border-radius:6px;border:1px solid var(--border);">
+          <input type="checkbox" id="chk-time" onchange="render()" checked style="accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;">
+          ⏱️ Czas realizacji
+        </label>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;font-size:0.8rem;color:var(--muted2);padding:7px 10px;background:var(--bg3);border-radius:6px;border:1px solid var(--border);">
+          <input type="checkbox" id="chk-needed" onchange="render()" checked style="accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;">
+          📎 Co będzie potrzebne
+        </label>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;font-size:0.8rem;color:var(--muted2);padding:7px 10px;background:var(--bg3);border-radius:6px;border:1px solid var(--border);">
+          <input type="checkbox" id="chk-cta" onchange="render()" checked style="accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;">
+          📞 Przycisk CTA z telefonem
+        </label>
       </div>
     </div>
     <hr class="divider-line">
@@ -183,6 +204,7 @@ function v(id) { return document.getElementById(id)?.value?.trim() || ''; }
 
 const DATA = {
   przedszkole: {
+    icon: '🏫',
     scope: [
       { icon: '🏫', text: 'Strona wizytówka — strona główna, oferta zajęć, wyżywienie, cennik, kontakt z mapą' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "przedszkole Grodzisk"), Google Search Console' },
@@ -199,6 +221,7 @@ const DATA = {
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona internetowa dla ${f||'placówki'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego przedszkola'} — bezpłatna propozycja` },
   },
   zlobek: {
+    icon: '🍼',
     scope: [
       { icon: '🍼', text: 'Strona wizytówka — strona główna, oferta, harmonogram dnia, galeria, cennik, kontakt' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "żłobek prywatny Warszawa"), Google Search Console' },
@@ -215,6 +238,7 @@ const DATA = {
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'żłobka'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego żłobka'} — propozycja` },
   },
   stolarz: {
+    icon: '🪚',
     scope: [
       { icon: '🪚', text: 'Strona wizytówka — strona główna, galeria realizacji, zakres usług, kontakt' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "stolarz na wymiar Poznań"), Google Search Console' },
@@ -231,6 +255,7 @@ const DATA = {
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'firmy'}`, cold: (f) => `Więcej zleceń ze strony internetowej — propozycja dla ${f||'Waszej firmy'}` },
   },
   budowlana: {
+    icon: '🏗️',
     scope: [
       { icon: '🏗️', text: 'Strona wizytówka — strona główna, zakres usług, realizacje, o firmie, kontakt z mapą' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "firma remontowa Kraków"), Google Search Console' },
@@ -247,6 +272,7 @@ const DATA = {
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'firmy'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej firmy'} — propozycja` },
   },
   restauracja: {
+    icon: '🍽️',
     scope: [
       { icon: '🍽️', text: 'Strona wizytówka — menu, galeria, rezerwacje, o nas, kontakt z mapą i godzinami' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "restauracja włoska Wrocław"), Google Search Console' },
@@ -258,11 +284,12 @@ const DATA = {
     headlines: { follow: (f) => `Podsumowanie ustaleń — strona dla ${f||'Waszej restauracji'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej restauracji'} — propozycja` },
     intros: {
       follow: () => `Dziękuję za rozmowę i Pana/Pani czas. Przesyłam podsumowanie zakresu projektu — mam nadzieję że wszystko jest jasne. W razie pytań proszę śmiało pisać lub dzwonić.`,
-      cold: (f) => `Piszę do Państwa, ponieważ ${f||'Wasza restauracja'} zasługuje na piękną stronę, która zachęci gości jeszcze zanim przestąpią próg. Większość osób szuka dziś miejsca na kolację przez Google — dobra strona z menu, zdjęciami i opcją rezerwacji online robi ogromną różnicę.`,
+      cold: (f) => `Piszę do Państwa, ponieważ ${f||'Wasza restauracja'} zasługuje na piękną stronę, która zachęci gości jeszcze zanim przestąpią próg. Większość osób szuka dziś miejsca na kolację przez Google — dobra strona z menu, zdjęciami i opcją rezerwacji robi ogromną różnicę.`,
     },
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'restauracji'}`, cold: (f) => `Strona internetowa dla ${f||'Waszej restauracji'} — propozycja` },
   },
   salon: {
+    icon: '💅',
     scope: [
       { icon: '💅', text: 'Strona wizytówka — usługi z cennikiem, galeria efektów, rezerwacja, kontakt' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne (np. "salon urody Gdańsk"), Google Search Console' },
@@ -279,6 +306,7 @@ const DATA = {
     subjects: { follow: (f) => `Podsumowanie rozmowy — strona dla ${f||'salonu'}`, cold: (f) => `Strona internetowa dla ${f||'Waszego salonu'} — propozycja` },
   },
   universal: {
+    icon: '🌐',
     scope: [
       { icon: '💻', text: 'Strona wizytówka — strona główna, oferta, o firmie, kontakt z mapą' },
       { icon: '🔍', text: 'SEO — optymalizacja pod frazy lokalne, konfiguracja Google Search Console' },
@@ -292,7 +320,7 @@ const DATA = {
       follow: () => `Dziękuję za rozmowę i Pana/Pani czas. Przesyłam podsumowanie zakresu projektu oraz warunki współpracy — mam nadzieję, że poniższe informacje są przejrzyste i kompletne.`,
       cold: (f) => `Piszę do Państwa z propozycją stworzenia profesjonalnej strony internetowej dla ${f||'Waszej firmy'}. Dobrze zaprojektowana strona to dziś podstawa widoczności w Google i pierwsze wrażenie dla potencjalnych klientów.`,
     },
-    subjects: { follow: () => `Podsumowanie rozmowy — propozycja strony`, cold: (f) => `Profesjonalna strona internetowa — propozycja dla ${f||'Waszej firmy'}` },
+    subjects: { follow: (f) => `Podsumowanie rozmowy — propozycja strony`, cold: (f) => `Profesjonalna strona internetowa — propozycja dla ${f||'Waszej firmy'}` },
   },
 };
 
@@ -307,13 +335,21 @@ function getContent() {
   const email = v('senderEmail') || '[email]';
   const client = v('clientName') || '[imię klienta]';
   const firm = v('clientFirm') || '';
-  const price = v('price') || '3 000 zł';
-  const deposit = v('deposit') || '300 zł';
   const initials = name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
   const d = DATA[clientType];
+
+  const modules = {
+    hosting: document.getElementById('chk-hosting')?.checked ?? true,
+    changes: document.getElementById('chk-changes')?.checked ?? true,
+    time:    document.getElementById('chk-time')?.checked ?? true,
+    needed:  document.getElementById('chk-needed')?.checked ?? true,
+    cta:     document.getElementById('chk-cta')?.checked ?? true,
+  };
+
   return {
-    name, phone, email, client, firm, price, deposit, initials,
-    scope: d.scope, needed: d.needed,
+    name, phone, email, client, firm, initials, modules,
+    scope: d.scope,
+    needed: d.needed,
     headline: d.headlines[emailType](firm),
     intro: d.intros[emailType](firm),
     closing: CLOSINGS[emailType],
@@ -326,9 +362,26 @@ function render() {
   const d = getContent();
   document.getElementById('subjectLine').textContent = d.subject;
   document.getElementById('subjectHint').textContent = emailType === 'follow' ? 'Temat follow-up' : 'Temat zimny email';
+
   const scopeHTML = d.scope.map(s => `<div class="em-scope-item"><div class="em-scope-dot"></div><div>${s.icon} ${s.text}</div></div>`).join('');
   const neededHTML = d.needed.map(n => `<div class="em-needed-item">□ ${n}</div>`).join('');
   const closingHTML = d.closing.split('\n\n').map(p => `<p style="margin-bottom:11px;">${p}</p>`).join('');
+
+  // Kafelki — tylko te zaznaczone
+  const cards = [];
+  if (d.modules.hosting) cards.push(`<div class="em-price-card"><div class="em-price-label">Hosting + domena</div><div class="em-price-value">~300 zł</div><div class="em-price-note">netto · rocznie</div></div>`);
+  if (d.modules.changes) cards.push(`<div class="em-price-card"><div class="em-price-label">Zmiany na stronie</div><div class="em-price-value">150 zł/h</div><div class="em-price-note">netto · po realizacji</div></div>`);
+  if (d.modules.time)    cards.push(`<div class="em-price-card"><div class="em-price-label">Czas realizacji</div><div class="em-price-value">~1 tydzień</div><div class="em-price-note">+ poprawki i treści</div></div>`);
+  const pricingBlock = cards.length ? `<div class="em-section-title">Warunki współpracy</div><div class="em-pricing">${cards.join('')}</div>` : '';
+
+  const neededBlock = d.modules.needed
+    ? `<div class="em-section-title">Co będzie potrzebne z Państwa strony</div><div class="em-needed"><div class="em-needed-grid">${neededHTML}</div></div>`
+    : '';
+
+  const ctaBlock = d.modules.cta
+    ? `<div class="em-cta-box"><div class="em-cta-text"><strong>Masz pytania?</strong> Zadzwoń lub odpisz — odpowiem tego samego dnia.</div><a href="tel:${d.phone}" class="em-cta-btn">📞 ${d.phone||'Zadzwoń'}</a></div>`
+    : '';
+
   document.getElementById('emailPreview').innerHTML = `
     <div class="em-header">
       <div class="em-header-top">
@@ -336,26 +389,15 @@ function render() {
         <div class="em-badge ${emailType}">${d.badgeLabel}</div>
       </div>
       <div class="em-headline">${d.headline}</div>
-      <div class="em-sub">Wszystkie ceny podane w kwocie netto</div>
     </div>
     <div class="em-body">
       <p class="em-greeting">Szanowna/y ${d.client},</p>
       <p class="em-intro">${d.intro}</p>
       <div class="em-section-title">Zakres projektu</div>
       <div class="em-scope">${scopeHTML}</div>
-      <div class="em-section-title">Wycena</div>
-      <div class="em-pricing">
-        <div class="em-price-card"><div class="em-price-label">Projekt (jednorazowo)</div><div class="em-price-value">${d.price}</div><div class="em-price-note">netto · zaliczka ${d.deposit}</div></div>
-        <div class="em-price-card"><div class="em-price-label">Hosting + domena</div><div class="em-price-value">~300 zł</div><div class="em-price-note">netto · rocznie</div></div>
-        <div class="em-price-card"><div class="em-price-label">Zmiany na stronie</div><div class="em-price-value">150 zł/h</div><div class="em-price-note">netto · po realizacji</div></div>
-        <div class="em-price-card"><div class="em-price-label">Czas realizacji</div><div class="em-price-value">~1 tydzień</div><div class="em-price-note">+ poprawki i treści</div></div>
-      </div>
-      <div class="em-section-title">Co będzie potrzebne z Państwa strony</div>
-      <div class="em-needed"><div class="em-needed-grid">${neededHTML}</div></div>
-      <div class="em-cta-box">
-        <div class="em-cta-text"><strong>Masz pytania?</strong> Zadzwoń lub odpisz — odpowiem tego samego dnia.</div>
-        <a href="tel:${d.phone}" class="em-cta-btn">📞 ${d.phone||'Zadzwoń'}</a>
-      </div>
+      ${pricingBlock}
+      ${neededBlock}
+      ${ctaBlock}
       <div class="em-closing">${closingHTML}</div>
       <div class="em-sig">
         <div class="em-sig-avatar">${d.initials||'WS'}</div>
@@ -367,7 +409,6 @@ function render() {
       </div>
     </div>
     <div class="em-footer">
-      Wszystkie kwoty podane są w cenach netto. Faktura Proforma przed rozpoczęciem prac, Faktura VAT po zapłacie.<br>
       W przypadku zakończenia współpracy przekazuję pełny dostęp do domeny, hostingu i kod źródłowy strony.
     </div>`;
 }
@@ -408,5 +449,6 @@ function copyPlain() {
 
 render();
 </script>
+
 </body>
 </html>
